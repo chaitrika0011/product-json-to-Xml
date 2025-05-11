@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung Galaxy S21",
+    "price": "699",
+    "image": "https://via.placeholder.com/250x150?text=Samsung+S21",
+    "tag": "Latest",
+    "description": "Samsung Galaxy S21 with 128GB storage and 8GB RAM."
+  },
+  {
+    "id": 2,
+    "name": "Apple iPhone 13",
+    "price": "799",
+    "image": "https://via.placeholder.com/250x150?text=iPhone+13",
+    "tag": "New Arrival",
+    "description": "Apple iPhone 13 featuring the A15 Bionic chip and dual-camera system."
+  },
+  {
+    "id": 3,
+    "name": "OnePlus 9 Pro",
+    "price": "699",
+    "image": "https://via.placeholder.com/250x150?text=OnePlus+9+Pro",
+    "tag": "Trending",
+    "description": "OnePlus 9 Pro with Snapdragon 888 and Hasselblad Camera."
+  }
+]

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Phones Listing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    #mobileContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .mobile {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 15px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .mobile img {
+      max-width: 100%;
+      height: auto;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 10px;
+    }
+    .mobile h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+    .tag {
+      background: #f1c40f;
+      color: #fff;
+      padding: 3px 6px;
+      font-size: 12px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .mobile p {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mobile Phones Listing</h1>
+  <div id="mobileContainer"></div>
+
+  <script>
+    // Array with 20 mobile phone objects
+    const mobiles = [
+      {
+        "id": 1,
+        "name": "Samsung Galaxy S21",
+        "price": "699",
+        "image": "https://via.placeholder.com/250x150?text=Samsung+S21",
+        "tag": "Latest",
+        "description": "Samsung Galaxy S21 with 128GB storage and 8GB RAM."
+      },
+      {
+        "id": 2,
+        "name": "Apple iPhone 13",
+        "price": "799",
+        "image": "https://via.placeholder.com/250x150?text=iPhone+13",
+        "tag": "New Arrival",
+        "description": "Apple iPhone 13 featuring the A15 Bionic chip and dual-camera system."
+      },
+      {
+        "id": 3,
+        "name": "OnePlus 9 Pro",
+        "price": "699",
+        "image": "https://via.placeholder.com/250x150?text=OnePlus+9+Pro",
+        "tag": "Trending",
+        "description": "OnePlus 9 Pro with Snapdragon 888 and Hasselblad Camera."
+      },
+      {
+        "id": 4,
+        "name": "Xiaomi Mi 11",
+        "price": "649",
+        "image": "https://via.placeholder.com/250x150?text=Xiaomi+Mi+11",
+        "tag": "Popular",
+        "description": "Xiaomi Mi 11 offering a high resolution camera and fast charging."
+      },
+      {
+        "id": 5,
+        "name": "Google Pixel 6",
+        "price": "699",
+        "image": "https://via.placeholder.com/250x150?text=Pixel+6",
+        "tag": "Featured",
+        "description": "Google Pixel 6 with pure Android experience and advanced camera features."
+      },
+      {
+        "id": 6,
+        "name": "Oppo Find X3",
+        "price": "749",
+        "image": "https://via.placeholder.com/250x150?text=Oppo+Find+X3",
+        "tag": "Exclusive",
+        "description": "Oppo Find X3 with an innovative display and sleek design."
+      },
+      {
+        "id": 7,
+        "name": "Vivo X60 Pro",
+        "price": "679",
+        "image": "https://via.placeholder.com/250x150?text=Vivo+X60+Pro",
+        "tag": "Hot",
+        "description": "Vivo X60 Pro with advanced photography features and fast performance."
+      },
+      {
+        "id": 8,
+        "name": "Realme GT",
+        "price": "599",
+        "image": "https://via.placeholder.com/250x150?text=Realme+GT",
+        "tag": "Value",
+        "description": "Realme GT delivering flagship performance at a competitive price."
+      },
+      {
+        "id": 9,
+        "name": "Motorola Edge",
+        "price": "549",
+        "image": "https://via.placeholder.com/250x150?text=Motorola+Edge",
+        "tag": "Sleek",
+        "description": "Motorola Edge with a near bezel-less display and powerful processor."
+      },
+      {
+        "id": 10,
+        "name": "Nokia 8.3",
+        "price": "499",
+        "image": "https://via.placeholder.com/250x150?text=Nokia+8.3",
+        "tag": "Reliable",
+        "description": "Nokia 8.3 known for its durability and clean Android experience."
+      },
+      {
+        "id": 11,
+        "name": "LG Velvet",
+        "price": "529",
+        "image": "https://via.placeholder.com/250x150?text=LG+Velvet",
+        "tag": "Stylish",
+        "description": "LG Velvet with a unique design and impressive multimedia features."
+      },
+      {
+        "id": 12,
+        "name": "Asus ROG Phone 5",
+        "price": "999",
+        "image": "https://via.placeholder.com/250x150?text=ROG+Phone+5",
+        "tag": "Gaming",
+        "description": "Asus ROG Phone 5 built for gaming with a high refresh rate and robust internals."
+      },
+      {
+        "id": 13,
+        "name": "Honor Magic 3",
+        "price": "749",
+        "image": "https://via.placeholder.com/250x150?text=Honor+Magic+3",
+        "tag": "Innovative",
+        "description": "Honor Magic 3 featuring cutting-edge technology and an elegant design."
+      },
+      {
+        "id": 14,
+        "name": "Lenovo Legion Duel 2",
+        "price": "899",
+        "image": "https://via.placeholder.com/250x150?text=Legion+Duel+2",
+        "tag": "Performance",
+        "description": "Lenovo Legion Duel 2 designed for high-performance gaming and multitasking."
+      },
+      {
+        "id": 15,
+        "name": "Sony Xperia 1 III",
+        "price": "1099",
+        "image": "https://via.placeholder.com/250x150?text=Xperia+1+III",
+        "tag": "Premium",
+        "description": "Sony Xperia 1 III with 4K HDR display and professional-grade camera capabilities."
+      },
+      {
+        "id": 16,
+        "name": "HTC U20 5G",
+        "price": "649",
+        "image": "https://via.placeholder.com/250x150?text=HTC+U20+5G",
+        "tag": "5G Ready",
+        "description": "HTC U20 5G offering seamless 5G connectivity and robust performance."
+      },
+      {
+        "id": 17,
+        "name": "ZTE Axon 30",
+        "price": "579",
+        "image": "https://via.placeholder.com/250x150?text=ZTE+Axon+30",
+        "tag": "Advanced",
+        "description": "ZTE Axon 30 equipped with a top-notch camera system and fast charging."
+      },
+      {
+        "id": 18,
+        "name": "Infinix Note 10",
+        "price": "299",
+        "image": "https://via.placeholder.com/250x150?text=Infinix+Note+10",
+        "tag": "Budget",
+        "description": "Infinix Note 10 combining affordability with a large display and decent specs."
+      },
+      {
+        "id": 19,
+        "name": "Tecno Camon 17",
+        "price": "269",
+        "image": "https://via.placeholder.com/250x150?text=Tecno+Camon+17",
+        "tag": "Economy",
+        "description": "Tecno Camon 17 providing great camera quality and battery life on a budget."
+      },
+      {
+        "id": 20,
+        "name": "Meizu 18 Pro",
+        "price": "799",
+        "image": "https://via.placeholder.com/250x150?text=Meizu+18+Pro",
+        "tag": "High-End",
+        "description": "Meizu 18 Pro featuring premium design and high performance hardware."
+      }
+    ];
+
+    // Use a document fragment for efficient DOM insertion
+    const container = document.getElementById('mobileContainer');
+    const fragment = document.createDocumentFragment();
+
+    mobiles.forEach(mobile => {
+      const mobileDiv = document.createElement('div');
+      mobileDiv.className = 'mobile';
+
+      // Create and append the image (with lazy loading)
+      const img = document.createElement('img');
+      img.src = mobile.image;
+      img.alt = mobile.name;
+      img.loading = "lazy";
+      mobileDiv.appendChild(img);
+
+      // Create and append the mobile name
+      const name = document.createElement('h3');
+      name.textContent = mobile.name;
+      mobileDiv.appendChild(name);
+
+      // Create and append the price
+      const price = document.createElement('p');
+      price.className = 'price';
+      price.textContent = 'Price: $' + mobile.price;
+      mobileDiv.appendChild(price);
+
+      // Create and append the tag
+      const tag = document.createElement('p');
+      tag.className = 'tag';
+      tag.textContent = mobile.tag;
+      mobileDiv.appendChild(tag);
+
+      // Create and append the description
+      const description = document.createElement('p');
+      description.textContent = mobile.description;
+      mobileDiv.appendChild(description);
+
+      // Append the mobile card to the fragment
+      fragment.appendChild(mobileDiv);
+    });
+
+    // Append all mobile cards at once to minimize reflows
+    container.appendChild(fragment);
+  </script>
+</body>
+</html>
